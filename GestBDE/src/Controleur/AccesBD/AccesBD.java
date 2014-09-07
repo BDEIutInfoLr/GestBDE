@@ -77,20 +77,5 @@ public class AccesBD {
         stmt.close();
         con.close();
         return resultats;
-    }
-
-    void show_result() {
-        try {
-            while (rs.next()) {
-
-                int id = rs.getInt("ID");
-                String libelle = rs.getString("LIBELLE_GENRE");
-                System.out.println("ID = " + id);
-                System.out.println("GENRE = " + libelle);
-                System.out.println("");
-            }
-        } catch (Exception e) {
-            System.out.println("Select Error:" + e);
-        }
     }    
 }
