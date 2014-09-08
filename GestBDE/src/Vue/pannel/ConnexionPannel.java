@@ -6,6 +6,8 @@
 
 package Vue.pannel;
 
+import Controleur.Controler;
+
 /**
  *
  * @author utilisateur
@@ -15,8 +17,10 @@ public class ConnexionPannel extends javax.swing.JPanel {
     /**
      * Creates new form Connexion
      */
-    public ConnexionPannel() {
+    private Controler controler;
+    public ConnexionPannel(Controler controler) {
         initComponents();
+        this.controler = controler;
     }
 
     /**
@@ -139,7 +143,7 @@ public class ConnexionPannel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConnexionActionPerformed
-        
+        this.controler.Connexion(this.fieldIdentifiant.getText(), String.valueOf(this.fieldMdp.getPassword()));
     }//GEN-LAST:event_buttonConnexionActionPerformed
 
 

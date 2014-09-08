@@ -21,6 +21,8 @@ public class GestBDE {
     public static void main(String[] args) {
         Controler controler = new Controler();
         VuePrincipale vue = new VuePrincipale(controler);
+        controler.setVue(vue);
+        vue.setVisible(true);
     }
     
 }

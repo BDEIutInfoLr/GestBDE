@@ -21,16 +21,18 @@ public class Controler {
 
     public Controler() {
         this.dataRecorder = new CreerDonnee();
+        this.dataReader = new LireDonnee();
     }
 
     public void setVue(VuePrincipale vue) {
-        this.vue = new VuePrincipale(this);
+        this.vue = vue;
 
     }
 
     public void Connexion(String id, String mdp) {
         if (dataReader.Connexion(id, mdp)){
-            
+            this.vue.navigateTableauDeBord();
+            System.out.println(mdp);
         }
     }
 }

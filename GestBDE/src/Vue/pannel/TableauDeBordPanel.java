@@ -16,8 +16,8 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
 
     private Controler controler;
     public TableauDeBordPanel(Controler controler) {
-        this.controler=controler;
         initComponents();
+        this.controler=controler;
     }
 
     /**
@@ -33,15 +33,16 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 879, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,8 @@
 
 package Controleur.AccesBD;
 
+import java.util.List;
+
 /**
  *
  * @author utilisateur
@@ -18,7 +20,7 @@ public class LireDonnee {
     }
     
     public boolean Connexion(String id, String mdp){
-        String sql = "SELECT IDENTIFIANT, MDP FROM ADMIN";
+        String sql = "SELECT ID_ADMIN FROM ADMIN WHERE LOGIN = '" + id +"' AND MDP = '" + mdp + "'";
         try {
             return !accesBD.interrogerBase(sql).isEmpty();
         } catch (Exception e) {
