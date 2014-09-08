@@ -16,6 +16,8 @@ public class Produit {
     private String nomProduit;
     private double prixVente;
     private double prixAchat;
+    private String cheminIcone;
+    
 
     public String getNomProduit() {
         return nomProduit;

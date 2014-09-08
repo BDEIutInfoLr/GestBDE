@@ -6,6 +6,9 @@
 
 package gestbde;
 
+import Controleur.Controler;
+import Vue.VuePrincipale;
+
 /**
  *
  * @author Antoine
@@ -16,7 +19,8 @@ public class GestBDE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Controler controler = new Controler();
+        VuePrincipale vue = new VuePrincipale(controler);
     }
     
 }

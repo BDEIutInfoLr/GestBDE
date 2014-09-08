@@ -4,34 +4,22 @@
  * and open the template in the editor.
  */
 
-package Vue;
+package Vue.pannel;
 
 import Controleur.Controler;
-import Vue.pannel.TableauDeBordPanel;
-import java.awt.Frame;
-import javax.swing.JFrame;
 
 /**
  *
- * @author Antoine
+ * @author utilisateur
  */
-public class VuePrincipale extends javax.swing.JFrame {
+public class TableauDeBordPanel extends javax.swing.JPanel {
 
     private Controler controler;
-    
-    private TableauDeBordPanel tableauDeBordPanel;
-    public VuePrincipale(Controler controler) {
+    public TableauDeBordPanel(Controler controler) {
         this.controler=controler;
-        this.tableauDeBordPanel = new TableauDeBordPanel(controler);
         initComponents();
     }
 
-    
-    public void navigateTableauDeBord(){
-        this.setContentPane(tableauDeBordPanel);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.validate();
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,10 +29,8 @@ public class VuePrincipale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
@@ -53,8 +39,6 @@ public class VuePrincipale extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
