@@ -42,7 +42,7 @@ public class LireDonnee {
             List<List<String>> resultats = monAccesBD.interrogerBase("SELECT NOM_PRODUIT, PRIX_VENTE, STOCK "
                                                                    + "FROM PRODUIT "
                                                                    + "WHERE CATEGORIE = 'BOISSON' "
-                                                                   + "AND ORDRE BY NOM_PRODUIT");
+                                                                   + "ORDER BY NOM_PRODUIT");
             for (List<String> row : resultats) {
                 String nomProduit = row.get(0);
                 double prixVente = Double.parseDouble(row.get(1));
@@ -68,7 +68,7 @@ public class LireDonnee {
                 int id = Integer.parseInt(ls.get(0));
                 int idVentes = Integer.parseInt(ls.get(2));
                 Eleve e = new Eleve(Integer.parseInt(ls.get(2)), ls.get(4), ls.get(5));
-                int montant = Integer.parseInt(ls.get(3));
+                double montant = Double.parseDouble(ls.get(3));
                 retour.add(new Dette( id, idVentes, e, montant));
             }
             return retour;

@@ -16,17 +16,17 @@ public class Dette {
     private int id;
     private int idDesVentes;
     private Eleve eleveEndete;
-    private int montant;
+    private double montant;
 
     public int getId() {
         return id;
     }
 
-    public int getMontant() {
+    public double getMontant() {
         return montant;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(double montant) {
         this.montant = montant;
     }
 
@@ -44,7 +44,7 @@ public class Dette {
         this.eleveEndete = eleveEndete;
     }
 
-    public Dette(int id, int idDesVentes, Eleve eleveEndete, int montant) {
+    public Dette(int id, int idDesVentes, Eleve eleveEndete, double montant) {
         this.id = id;
         this.idDesVentes = idDesVentes;
         this.eleveEndete = eleveEndete;

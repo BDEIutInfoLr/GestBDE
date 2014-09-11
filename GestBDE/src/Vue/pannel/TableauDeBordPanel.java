@@ -25,7 +25,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
     public TableauDeBordPanel(Controler controler) {
         initComponents();
         this.controler=controler;
-        this.tableauDette.setModel(new ModeleTableDette(new ArrayList<Dette>()));
+        
     }
 
     /**
@@ -268,6 +268,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
     {
         tableBoisson = new ModeleTableVenteBoisson(listeBoisson, controler);
         this.tableauBoisson.setModel(tableBoisson);
+        this.tableauDette.setModel(new ModeleTableDette(new ArrayList<Dette>()));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

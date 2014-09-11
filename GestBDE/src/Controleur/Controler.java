@@ -8,6 +8,7 @@ package Controleur;
 import Controleur.AccesBD.CreerDonnee;
 import Controleur.AccesBD.LireDonnee;
 import Modele.Boisson;
+import Modele.Dette;
 import Vue.VuePrincipale;
 import java.util.ArrayList;
 
@@ -30,7 +31,12 @@ public class Controler {
         this.vue = vue;
 
     }
-
+    
+    public ArrayList<Dette> recupDettes()
+    {
+        return this.dataReader.recupererDettes();
+    }
+    
     public void Connexion(String id, String mdp) {
         if (dataReader.Connexion(id, mdp)){
             this.vue.navigateTableauDeBord();

@@ -38,6 +38,7 @@ public class VuePrincipale extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setResizable(false);
         this.barreMenu.setVisible(true);
+        this.initTableauDeBord();
         this.validate();
     }
     

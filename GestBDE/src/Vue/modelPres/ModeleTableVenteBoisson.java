@@ -47,5 +47,18 @@ public class ModeleTableVenteBoisson extends AbstractTableModel {
            return null;
         }
     }
+    
+    @Override
+    public String getColumnName(int columnIndex)
+    {
+        return this.colonnes.get(columnIndex);
+    }
+    
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex)
+    {
+        return columnIndex == 1;
+    }
+
 
 }
