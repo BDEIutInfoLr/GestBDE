@@ -59,23 +59,27 @@ public class LireDonnee {
    
     public ArrayList<Dette> recupererDettes()
     {
-        String sql = "select D.ID_DETTE, D.ID_ELEVE_DETTE, D.ID_VENTE, D.CREANCE, E.NOM, E.PRENOM FROM DETTE D, ELEVE E";
+        String sql = "select D.ID_DETTE, D.ID_ELEVE_DETTE, D.ID_VENTE, D.CREANCE, E.NOM, E.PRENOM FROM DETTE D, ELEVE E Where e.id_eleve = D.Id_eleve_dette";
         ArrayList<Dette> retour = new ArrayList<>();
         try {
             List<List<String>> listResultats = this.monAccesBD.interrogerBase(sql);
-            for(List<String> ls : listResultats)
+            if(listResultats != null)
             {
-                int id = Integer.parseInt(ls.get(0));
-                int idVentes = Integer.parseInt(ls.get(2));
-                Eleve e = new Eleve(Integer.parseInt(ls.get(2)), ls.get(4), ls.get(5));
-                double montant = Double.parseDouble(ls.get(3));
-                retour.add(new Dette( id, idVentes, e, montant));
+                for(List<String> ls : listResultats)
+                {
+                    int id = Integer.parseInt(ls.get(0));
+                    int idVentes = Integer.parseInt(ls.get(2));
+                    Eleve e = new Eleve(Integer.parseInt(ls.get(2)), ls.get(4), ls.get(5));
+                    double montant = Double.parseDouble(ls.get(3));
+                    retour.add(new Dette( id, idVentes, e, montant));
+                }
+                System.out.println("test");
+                return retour;
             }
-            return retour;
         } catch (SQLException ex) {
             Logger.getLogger(LireDonnee.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return retour;
     }
     
     
