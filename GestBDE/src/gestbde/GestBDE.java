@@ -6,6 +6,7 @@
 
 package gestbde;
 
+import Controleur.AccesBD.GestionSQLite;
 import Controleur.Controler;
 import Vue.VuePrincipale;
 
