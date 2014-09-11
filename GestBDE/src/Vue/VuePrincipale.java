@@ -40,6 +40,10 @@ public class VuePrincipale extends javax.swing.JFrame {
         this.barreMenu.setVisible(true);
         this.validate();
     }
+    
+    public void initTableauDeBord(){
+        tableauDeBordPanel.initTableauDeBord(controler.getListeBoisson());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

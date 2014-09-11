@@ -7,8 +7,10 @@
 package Vue.pannel;
 
 import Controleur.Controler;
+import Modele.Boisson;
 import Modele.Dette;
 import Vue.modelPres.ModeleTableDette;
+import Vue.modelPres.ModeleTableVenteBoisson;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 public class TableauDeBordPanel extends javax.swing.JPanel {
 
     private Controler controler;
+    private ModeleTableVenteBoisson tableBoisson;
+    
     public TableauDeBordPanel(Controler controler) {
         initComponents();
         this.controler=controler;
@@ -260,9 +264,10 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         this.comboBoxEtudiant.setEnabled(this.checkBoxDette.isSelected());
     }//GEN-LAST:event_checkBoxDetteActionPerformed
 
-    public void initTableauDeBord()
+    public void initTableauDeBord(ArrayList<Boisson> listeBoisson)
     {
-        
+        tableBoisson = new ModeleTableVenteBoisson(listeBoisson, controler);
+        this.tableauBoisson.setModel(tableBoisson);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
