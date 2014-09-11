@@ -17,4 +17,7 @@ public class Confiserie extends Produit
         super(nomProduit, 0.50, prixAchat);
     }
     
+    public Confiserie(String nomProduit, double prixVente, int stock){
+        super(nomProduit, prixVente, stock);
+    }    
 }

@@ -24,14 +24,14 @@ values ('bdeinfo', 'bdeinfo');
 -- ============================================================================
 -- Insertion dans la Table ELEVE                             
 -- ============================================================================
-insert into ELEVE(NOM, PRENOM)
-values ('Acquier', 'Nicolas');
+insert into ELEVE(ID_ELEVE, NOM, PRENOM)
+values (1,'Acquier', 'Nicolas');
 
-insert into ELEVE(NOM, PRENOM)
-values ('Queiros', 'Antoine');
+insert into ELEVE(ID_ELEVE, NOM, PRENOM)
+values (2,'Queiros', 'Antoine');
 
-insert into ELEVE(NOM, PRENOM)
-values ('Sinigaglia', 'Steeve');
+insert into ELEVE(ID_ELEVE, NOM, PRENOM)
+values (3,'Sinigaglia', 'Steeve');
 
 -- ============================================================================
 -- Insertion dans la Table PRODUIT                              
@@ -122,8 +122,10 @@ values (7, 4, 7);
 insert into DETTE(ID_ELEVE_DETTE, ID_VENTE, CREANCE)
 values (1, 1, 1.5);
 
-insert into DETTE(ID_ELEVE_DETTE, ID_VENTE, CREANCE)
-values (1, 2, 2.5);
+UPDATE DETTE
+SET CREANCE = CREANCE+2.5
+WHERE ID_ELEVE_DETTE = 1;
+
 
 insert into DETTE(ID_ELEVE_DETTE, ID_VENTE, CREANCE)
 values (3, 3, 0.5);

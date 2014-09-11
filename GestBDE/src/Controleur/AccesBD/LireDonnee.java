@@ -7,6 +7,7 @@
 package Controleur.AccesBD;
 
 import Modele.Boisson;
+import Modele.Confiserie;
 import Modele.Dette;
 import Modele.Eleve;
 import Modele.Produit;
@@ -52,15 +53,39 @@ public class LireDonnee {
                 lesBoissons.add(new Boisson(nomProduit,prixVente,stock));
             }
         } catch (SQLException e) {
-            System.out.println("Erreur recuperation de la liste des series disponible");
+            System.out.println("Erreur recuperation de la liste des boissons disponible");
         }
 
         return lesBoissons;
     }        
    
+    public ArrayList<Confiserie> recupererListeConfiserie(){
+        ArrayList<Confiserie> lesConfiserie = new ArrayList<>();
+        try {
+            List<List<String>> resultats = monAccesBD.interrogerBase("SELECT NOM_PRODUIT, PRIX_VENTE, STOCK "
+                                                                   + "FROM PRODUIT "
+                                                                   + "WHERE CATEGORIE = 'CONFISERIE' "
+                                                                   + "ORDER BY NOM_PRODUIT");
+            for (List<String> row : resultats) {
+                String nomProduit = row.get(0);
+                double prixVente = Double.parseDouble(row.get(1));
+                int stock = Integer.parseInt(row.get(2));
+                
+                lesConfiserie.add(new Confiserie(nomProduit,prixVente,stock));
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur recuperation de la liste des confiseries disponible");
+        }
+
+        return lesConfiserie;
+    }
+    
+    
     public ArrayList<Dette> recupererDettes()
     {
-        String sql = "select D.ID_DETTE, D.ID_ELEVE_DETTE, D.ID_VENTE, D.CREANCE, E.NOM, E.PRENOM FROM DETTE D, ELEVE E Where e.id_eleve = D.Id_eleve_dette";
+        String sql = "select D.ID_DETTE, D.ID_ELEVE_DETTE, D.ID_VENTE, D.CREANCE, E.NOM, E.PRENOM "
+                + "FROM DETTE D, ELEVE E "
+                + "Where e.id_eleve = D.Id_eleve_dette";
         ArrayList<Dette> retour = new ArrayList<>();
         try {
             List<List<String>> listResultats = this.monAccesBD.interrogerBase(sql);
@@ -85,7 +110,7 @@ public class LireDonnee {
     
     public ArrayList<Produit> recupererStock()
     {
-        String sql = "SELECT id_produit, nom_produit, prix_vente, prix_achat, chemin_icone, categorie, stock from produit";
+        String sql = "SELECT id_produit, nom_produit, prix_vente, prix_achat, chemin_icone, categorie, stock FROM produit ORDER BY CATEGORIE, STOCK DESC";
         try {
             ArrayList<Produit> produits = new ArrayList<>();
             List<List<String>> resultats = this.monAccesBD.interrogerBase(sql);

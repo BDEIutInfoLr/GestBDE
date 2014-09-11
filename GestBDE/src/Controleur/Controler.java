@@ -8,6 +8,7 @@ package Controleur;
 import Controleur.AccesBD.CreerDonnee;
 import Controleur.AccesBD.LireDonnee;
 import Modele.Boisson;
+import Modele.Confiserie;
 import Modele.Dette;
 import Modele.Produit;
 import Vue.VuePrincipale;
@@ -32,25 +33,27 @@ public class Controler {
         this.vue = vue;
 
     }
-    
-    public ArrayList<Dette> recupDettes()
-    {
+
+    public ArrayList<Dette> recupDettes() {
         return this.dataReader.recupererDettes();
     }
-    
-    public ArrayList<Produit> recupStock()
-    {
+
+    public ArrayList<Produit> recupStock() {
         return this.dataReader.recupererStock();
     }
-    
+
     public void Connexion(String id, String mdp) {
-        if (dataReader.Connexion(id, mdp)){
+        if (dataReader.Connexion(id, mdp)) {
             this.vue.navigateTableauDeBord();
             System.out.println(mdp);
         }
     }
-    
-    public ArrayList<Boisson> getListeBoisson (){
+
+    public ArrayList<Boisson> getListeBoisson() {
         return dataReader.recupererListeBoisson();
+    }
+
+    public ArrayList<Confiserie> getListeConfiserie() {
+        return dataReader.recupererListeConfiserie();
     }
 }

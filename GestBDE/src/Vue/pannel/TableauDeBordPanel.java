@@ -8,11 +8,13 @@ package Vue.pannel;
 
 import Controleur.Controler;
 import Modele.Boisson;
+import Modele.Confiserie;
 import Modele.Dette;
 import Modele.Produit;
 import Vue.modelPres.ModeleTableDette;
 import Vue.modelPres.ModeleTableStock;
 import Vue.modelPres.ModeleTableVenteBoisson;
+import Vue.modelPres.ModeleTableVenteConfiserie;
 import java.util.ArrayList;
 
 /**
@@ -25,6 +27,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
     private ModeleTableVenteBoisson tableBoisson;
     private ModeleTableDette tableDette;
     private ModeleTableStock tableStock;
+    private ModeleTableVenteConfiserie tableConfiserie;
     
     public TableauDeBordPanel(Controler controler) {
         initComponents();
@@ -318,7 +321,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         this.comboBoxEtudiant.setEnabled(this.checkBoxDette.isSelected());
     }//GEN-LAST:event_checkBoxDetteActionPerformed
 
-    public void initTableauDeBord(ArrayList<Boisson> listeBoisson, ArrayList<Dette> listeDette, ArrayList<Produit> produits)
+    public void initTableauDeBord(ArrayList<Boisson> listeBoisson, ArrayList<Dette> listeDette, ArrayList<Produit> produits, ArrayList<Confiserie> listeConfiserie)
     {
         tableBoisson = new ModeleTableVenteBoisson(listeBoisson, controler);
         this.tableauBoisson.setModel(tableBoisson);
@@ -326,6 +329,8 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         this.tableauDette.setModel(tableDette);
         this.tableStock = new ModeleTableStock(produits);
         this.tableauStock.setModel(tableStock);
+        tableConfiserie = new ModeleTableVenteConfiserie(listeConfiserie);
+        this.tableauConfiserie.setModel(tableConfiserie);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
