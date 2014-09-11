@@ -21,6 +21,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
 
     private Controler controler;
     private ModeleTableVenteBoisson tableBoisson;
+    private ModeleTableDette tableDette;
     
     public TableauDeBordPanel(Controler controler) {
         initComponents();
@@ -264,11 +265,12 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         this.comboBoxEtudiant.setEnabled(this.checkBoxDette.isSelected());
     }//GEN-LAST:event_checkBoxDetteActionPerformed
 
-    public void initTableauDeBord(ArrayList<Boisson> listeBoisson)
+    public void initTableauDeBord(ArrayList<Boisson> listeBoisson, ArrayList<Dette> listeDette)
     {
         tableBoisson = new ModeleTableVenteBoisson(listeBoisson, controler);
         this.tableauBoisson.setModel(tableBoisson);
-        this.tableauDette.setModel(new ModeleTableDette(new ArrayList<Dette>()));
+        tableDette = new ModeleTableDette(listeDette);
+        this.tableauDette.setModel(tableDette);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
