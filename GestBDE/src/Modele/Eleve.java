@@ -15,6 +15,12 @@ public class Eleve { //Etudiant non ? ;)
     private String nom;
     private String prenom;
 
+    public Eleve(int id, String nom, String prenom) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
     public int getId() {
         return id;
     }

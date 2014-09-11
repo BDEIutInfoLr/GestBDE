@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Dette {
     private int id;
-    private ArrayList<Vente> listeVenteImpayee;
+    private int idDesVentes;
     private Eleve eleveEndete;
     private int montant;
 
@@ -34,13 +34,7 @@ public class Dette {
         this.id = id;
     }
 
-    public ArrayList<Vente> getListeVenteImpayee() {
-        return listeVenteImpayee;
-    }
 
-    public void setListeVenteImpayee(ArrayList<Vente> listeVenteImpayee) {
-        this.listeVenteImpayee = listeVenteImpayee;
-    }
 
     public Eleve getEleveEndete() {
         return eleveEndete;
@@ -48,6 +42,13 @@ public class Dette {
 
     public void setEleveEndete(Eleve eleveEndete) {
         this.eleveEndete = eleveEndete;
+    }
+
+    public Dette(int id, int idDesVentes, Eleve eleveEndete, int montant) {
+        this.id = id;
+        this.idDesVentes = idDesVentes;
+        this.eleveEndete = eleveEndete;
+        this.montant = montant;
     }
     
     
