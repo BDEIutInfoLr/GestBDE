@@ -7,7 +7,9 @@ package Controleur;
 
 import Controleur.AccesBD.CreerDonnee;
 import Controleur.AccesBD.LireDonnee;
+import Modele.Boisson;
 import Vue.VuePrincipale;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,5 +36,9 @@ public class Controler {
             this.vue.navigateTableauDeBord();
             System.out.println(mdp);
         }
+    }
+    
+    public ArrayList<Boisson> getListeBoisson (){
+        return dataReader.recupererListeBoisson();
     }
 }

@@ -17,4 +17,9 @@ public class Boisson extends Produit
         super(nomProduit, 0.60, prixAchat);
     }
     
+    public Boisson(String nomProduit, double prixVente, int stock){
+        super(nomProduit, prixVente, stock);
+    }
+
+    
 }

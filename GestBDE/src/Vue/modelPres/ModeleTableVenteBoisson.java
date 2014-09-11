@@ -36,12 +36,16 @@ public class ModeleTableVenteBoisson extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return colonnes.size();
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (columnIndex == 0){
+            return listeBoisson.get(rowIndex).getNomProduit();
+        } else {
+           return null;
+        }
     }
 
 }
