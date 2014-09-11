@@ -10,7 +10,7 @@ package Modele;
  *
  * @author Antoine
  */
-public class Eleve {
+public class Eleve { //Etudiant non ? ;)
     private int id;
     private String nom;
     private String prenom;
