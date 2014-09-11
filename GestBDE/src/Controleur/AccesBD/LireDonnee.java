@@ -7,9 +7,13 @@
 package Controleur.AccesBD;
 
 import Modele.Boisson;
+import Modele.Dette;
+import Modele.Eleve;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -53,6 +57,26 @@ public class LireDonnee {
         return lesBoissons;
     }        
    
+    public ArrayList<Dette> recupererDettes()
+    {
+        String sql = "select D.ID_DETTE, D.ID_ELEVE_DETTE, D.ID_VENTE, D.CREANCE, E.NOM, E.PRENOM FROM DETTE D, ELEVE E";
+        ArrayList<Dette> retour = new ArrayList<>();
+        try {
+            List<List<String>> listResultats = this.monAccesBD.interrogerBase(sql);
+            for(List<String> ls : listResultats)
+            {
+                int id = Integer.parseInt(ls.get(0));
+                int idVentes = Integer.parseInt(ls.get(2));
+                Eleve e = new Eleve(Integer.parseInt(ls.get(2)), ls.get(4), ls.get(5));
+                int montant = Integer.parseInt(ls.get(3));
+                retour.add(new Dette( id, idVentes, e, montant));
+            }
+            return retour;
+        } catch (SQLException ex) {
+            Logger.getLogger(LireDonnee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
     
 }

@@ -17,21 +17,45 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModeleTableDette extends AbstractTableModel
 {
-    List<Dette> listeDesDettes;
+    private List<Dette> listeDesDettes;
+    private String[] nomColonnes;
     
+    public ModeleTableDette(List<Dette> listeDesDettes)
+    {
+        this.listeDesDettes = listeDesDettes;
+        this.nomColonnes = new String[]{"Eleve", "Dette"};
+    }
+     
     @Override
     public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.listeDesDettes.size();
     }
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 2;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(columnIndex)
+        {
+            case 0: return this.listeDesDettes.get(rowIndex).getEleveEndete().getNom();
+            case 1: return this.listeDesDettes.get(rowIndex).getMontant();
+        }
+        return null;
+    }
+    
+    @Override
+    public Class<?> getColumnClass(int columnIndex)
+    {
+        return null;
+    }
+    
+    @Override
+    public String getColumnName(int columnIndex)
+    {
+        return this.nomColonnes[columnIndex];
     }
     
 }
