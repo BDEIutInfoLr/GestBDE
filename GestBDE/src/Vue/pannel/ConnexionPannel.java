@@ -64,6 +64,12 @@ public class ConnexionPannel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("IDENTIFIANT");
 
+        fieldMdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldMdpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -145,6 +151,11 @@ public class ConnexionPannel extends javax.swing.JPanel {
     private void buttonConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConnexionActionPerformed
         this.controler.Connexion(this.fieldIdentifiant.getText(), String.valueOf(this.fieldMdp.getPassword()));
     }//GEN-LAST:event_buttonConnexionActionPerformed
+
+    private void fieldMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldMdpActionPerformed
+        // TODO add your handling code here:
+        this.buttonConnexionActionPerformed(evt);
+    }//GEN-LAST:event_fieldMdpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

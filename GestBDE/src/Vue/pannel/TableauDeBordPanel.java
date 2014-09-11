@@ -7,6 +7,9 @@
 package Vue.pannel;
 
 import Controleur.Controler;
+import Modele.Dette;
+import Vue.modelPres.ModeleTableDette;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +21,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
     public TableauDeBordPanel(Controler controler) {
         initComponents();
         this.controler=controler;
+        this.tableauDette.setModel(new ModeleTableDette(new ArrayList<Dette>()));
     }
 
     /**
@@ -31,7 +35,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableauDette = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -46,7 +50,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableauDette.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -57,7 +61,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableauDette);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -191,8 +195,8 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable tableauBoisson;
     private javax.swing.JTable tableauConfiserie;
+    private javax.swing.JTable tableauDette;
     // End of variables declaration//GEN-END:variables
 }

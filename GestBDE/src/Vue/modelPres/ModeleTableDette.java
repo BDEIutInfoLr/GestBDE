@@ -46,4 +46,16 @@ public class ModeleTableDette extends AbstractTableModel
         return null;
     }
     
+    @Override
+    public Class<?> getColumnClass(int columnIndex)
+    {
+        return null;
+    }
+    
+    @Override
+    public String getColumnName(int columnIndex)
+    {
+        return this.nomColonnes[columnIndex];
+    }
+    
 }
