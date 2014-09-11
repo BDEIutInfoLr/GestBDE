@@ -81,5 +81,14 @@ public class Produit {
         this.stock = stock;
     }
 
+    public Produit(int id, String nomProduit, double prixVente, double prixAchat, String cheminIcone, int stock) {
+        this.id = id;
+        this.nomProduit = nomProduit;
+        this.prixVente = prixVente;
+        this.prixAchat = prixAchat;
+        this.cheminIcone = cheminIcone;
+        this.stock = stock;
+    }
+
     
 }

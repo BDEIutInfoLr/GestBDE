@@ -40,7 +40,7 @@ public class ModeleTableDette extends AbstractTableModel
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex)
         {
-            case 0: return this.listeDesDettes.get(rowIndex).getEleveEndete().getNom();
+            case 0: return this.listeDesDettes.get(rowIndex).getEleveEndete().getNom() + " " + this.listeDesDettes.get(rowIndex).getEleveEndete().getPrenom();
             case 1: return this.listeDesDettes.get(rowIndex).getMontant();
         }
         return null;

@@ -9,6 +9,7 @@ package Controleur.AccesBD;
 import Modele.Boisson;
 import Modele.Dette;
 import Modele.Eleve;
+import Modele.Produit;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,5 +83,28 @@ public class LireDonnee {
         return retour;
     }
     
+    public ArrayList<Produit> recupererStock()
+    {
+        String sql = "SELECT id_produit, nom_produit, prix_vente, prix_achat, chemin_icone, categorie, stock from produit";
+        try {
+            ArrayList<Produit> produits = new ArrayList<>();
+            List<List<String>> resultats = this.monAccesBD.interrogerBase(sql);
+            for(List<String> ls : resultats)
+            {
+                int id = Integer.parseInt(ls.get(0));
+                String nom = ls.get(1);
+                double prixVente = Double.parseDouble(ls.get(2));
+                double prixAchat = Double.parseDouble(ls.get(3));
+                String cheminIcone = ls.get(4);
+                int stock = Integer.parseInt(ls.get(6));
+                produits.add(new Produit(id, nom, prixVente, prixAchat, cheminIcone, stock));
+                
+            }
+            return produits;
+        } catch (SQLException ex) {
+            Logger.getLogger(LireDonnee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
 }

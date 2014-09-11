@@ -9,6 +9,7 @@ import Controleur.AccesBD.CreerDonnee;
 import Controleur.AccesBD.LireDonnee;
 import Modele.Boisson;
 import Modele.Dette;
+import Modele.Produit;
 import Vue.VuePrincipale;
 import java.util.ArrayList;
 
@@ -35,6 +36,11 @@ public class Controler {
     public ArrayList<Dette> recupDettes()
     {
         return this.dataReader.recupererDettes();
+    }
+    
+    public ArrayList<Produit> recupStock()
+    {
+        return this.dataReader.recupererStock();
     }
     
     public void Connexion(String id, String mdp) {

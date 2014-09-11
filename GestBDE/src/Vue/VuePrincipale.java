@@ -43,7 +43,7 @@ public class VuePrincipale extends javax.swing.JFrame {
     }
     
     public void initTableauDeBord(){
-        tableauDeBordPanel.initTableauDeBord(controler.getListeBoisson(), controler.recupDettes());
+        tableauDeBordPanel.initTableauDeBord(controler.getListeBoisson(), controler.recupDettes(), controler.recupStock());
     }
     /**
      * This method is called from within the constructor to initialize the form.

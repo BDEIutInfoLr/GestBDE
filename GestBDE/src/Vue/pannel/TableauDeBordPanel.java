@@ -9,7 +9,9 @@ package Vue.pannel;
 import Controleur.Controler;
 import Modele.Boisson;
 import Modele.Dette;
+import Modele.Produit;
 import Vue.modelPres.ModeleTableDette;
+import Vue.modelPres.ModeleTableStock;
 import Vue.modelPres.ModeleTableVenteBoisson;
 import java.util.ArrayList;
 
@@ -22,6 +24,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
     private Controler controler;
     private ModeleTableVenteBoisson tableBoisson;
     private ModeleTableDette tableDette;
+    private ModeleTableStock tableStock;
     
     public TableauDeBordPanel(Controler controler) {
         initComponents();
@@ -57,6 +60,10 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableauStock = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(1600, 900));
 
@@ -139,7 +146,7 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         jLabel2.setText("Boissons");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Confiserie");
+        jLabel3.setText("Confiseries");
 
         checkBoxDette.setText("Dette");
         checkBoxDette.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +241,49 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
                 .addGap(87, 87, 87))
         );
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel9.setText("STOCK");
+
+        tableauStock.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2"
+            }
+        ));
+        tableauStock.setDragEnabled(true);
+        jScrollPane4.setViewportView(tableauStock);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(jLabel9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -243,7 +293,9 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,7 +303,8 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -265,12 +318,14 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
         this.comboBoxEtudiant.setEnabled(this.checkBoxDette.isSelected());
     }//GEN-LAST:event_checkBoxDetteActionPerformed
 
-    public void initTableauDeBord(ArrayList<Boisson> listeBoisson, ArrayList<Dette> listeDette)
+    public void initTableauDeBord(ArrayList<Boisson> listeBoisson, ArrayList<Dette> listeDette, ArrayList<Produit> produits)
     {
         tableBoisson = new ModeleTableVenteBoisson(listeBoisson, controler);
         this.tableauBoisson.setModel(tableBoisson);
         tableDette = new ModeleTableDette(listeDette);
         this.tableauDette.setModel(tableDette);
+        this.tableStock = new ModeleTableStock(produits);
+        this.tableauStock.setModel(tableStock);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -285,13 +340,17 @@ public class TableauDeBordPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tableauBoisson;
     private javax.swing.JTable tableauConfiserie;
     private javax.swing.JTable tableauDette;
+    private javax.swing.JTable tableauStock;
     // End of variables declaration//GEN-END:variables
 }
